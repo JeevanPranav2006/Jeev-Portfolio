@@ -823,22 +823,134 @@
       color: var(--muted);
     }
 
-    /* RESPONSIVE */
+    /* HAMBURGER BUTTON */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      border-radius: 8px;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .hamburger:hover {
+      background: var(--surface);
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* MOBILE MENU DRAWER */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-menu-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(280px, 80vw);
+      background: var(--white);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 5rem 2rem 2rem;
+      gap: 0.5rem;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobile-menu.open .mobile-menu-panel {
+      transform: translateX(0);
+    }
+
+    .mobile-menu-panel a {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu-panel a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu-panel a:hover {
+      color: var(--teal);
+    }
+
+    /* RESPONSIVE — TABLET */
     @media (max-width: 768px) {
-      nav {
-        padding: 1rem 1.5rem;
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
       }
 
       .nav-links {
-        gap: 1.2rem;
+        display: none;
+      }
+
+      nav {
+        padding: 0.85rem 1.25rem;
       }
 
       section {
-        padding: 4rem 1.5rem;
+        padding: 4rem 1.25rem;
       }
 
       .hero {
-        padding: 5rem 1.5rem 3rem;
+        padding: 5.5rem 1.25rem 3rem;
+        min-height: auto;
       }
 
       .about-grid {
@@ -847,7 +959,8 @@
       }
 
       .avatar-wrap {
-        aspect-ratio: 16/7;
+        aspect-ratio: 4/3;
+        max-height: 340px;
       }
 
       .hero-bg-text {
@@ -856,10 +969,140 @@
 
       .hero-stats {
         gap: 1.5rem;
+        flex-wrap: wrap;
       }
 
-      #contact {
-        padding: 3.5rem 1.5rem;
+      .contact-inner {
+        padding: 3rem 1.5rem;
+        border-radius: 20px;
+      }
+
+      .contact-section {
+        padding: 2rem 1.25rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      }
+    }
+
+    /* RESPONSIVE — PHONE */
+    @media (max-width: 480px) {
+      nav {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 5rem 1rem 2.5rem;
+      }
+
+      .hero-name {
+        font-size: clamp(2.4rem, 11vw, 3.5rem);
+      }
+
+      .hero-tagline {
+        font-size: 0.97rem;
+      }
+
+      .hero-cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+        padding: 0.85rem 1.2rem;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem 1.5rem;
+        margin-top: 2.5rem;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+
+      .section-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 2rem;
+      }
+
+      .about-text {
+        font-size: 0.97rem;
+      }
+
+      .avatar-wrap {
+        aspect-ratio: 4/3;
+        border-radius: 16px;
+      }
+
+      .contact-pills a {
+        font-size: 12px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .skill-card {
+        padding: 0.9rem 1rem;
+      }
+
+      .education-timeline {
+        padding-left: 1.5rem;
+      }
+
+      .edu-degree {
+        font-size: 1.05rem;
+      }
+
+      .project-card {
+        padding: 1.4rem;
+        border-radius: 16px;
+      }
+
+      .contact-inner {
+        padding: 2.5rem 1.2rem;
+        border-radius: 16px;
+      }
+
+      .contact-section {
+        padding: 1.5rem 1rem;
+      }
+
+      .contact-heading {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .contact-link {
+        width: 100%;
+        justify-content: center;
+        padding: 0.9rem 1.2rem;
+      }
+
+      footer {
+        padding: 1.5rem 1rem;
+        font-size: 12px;
       }
     }
   </style>
@@ -881,8 +1124,24 @@
         <span class="theme-toggle-icon moon">🌙</span>
         <span class="theme-toggle-icon sun">☀️</span>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-menu-panel">
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#skills" class="mobile-nav-link">Skills</a>
+      <a href="#education" class="mobile-nav-link">Education</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
 
   <!-- HERO -->
   <div style="max-width:1100px;margin:0 auto;padding:0 2.5rem;position:relative;">
@@ -1154,12 +1413,55 @@
         }
       });
 
-      // Keyboard accessibility
+      // Keyboard accessibility for theme toggle
       toggle.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           toggle.click();
         }
+      });
+
+      // HAMBURGER / MOBILE MENU
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      function openMenu() {
+        hamburger.classList.add('open');
+        mobileMenu.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', function () {
+        if (mobileMenu.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      // Close on backdrop click
+      mobileMenu.addEventListener('click', function (e) {
+        if (!e.target.closest('.mobile-menu-panel')) {
+          closeMenu();
+        }
+      });
+
+      // Close on nav link click
+      document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
       });
     })();
   </script>
