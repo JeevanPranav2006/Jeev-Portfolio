@@ -596,6 +596,9 @@ footer { text-align: center; padding: 2rem; font-size: 13px; color: var(--muted)
   transition: width 0.25s ease;
 }
 .nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--teal); }
+.nav-links a.active::after { width: 100%; }
+
 
 /* ============================================================
    SECTION LABEL LINE ANIMATION

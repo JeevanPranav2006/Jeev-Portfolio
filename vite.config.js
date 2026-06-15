@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  // Root is the project directory (index.html lives here)
+  plugins: [react()],
   root: '.',
-  base: '/Portfolio/',   // <-- must match your GitHub repo name exactly
+  base: '/Portfolio/',
   publicDir: 'public',
   build: {
     outDir: 'dist',
