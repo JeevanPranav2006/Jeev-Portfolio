@@ -1,4 +1,3 @@
-import photo from '../../public/IMG_6567.jpg'
 export default function AboutSection() {
   return (
     <section id="about">
@@ -7,7 +6,7 @@ export default function AboutSection() {
       <div className="about-grid">
         <div className="about-left">
           <div className="avatar-wrap reveal-left">
-            <img src={photo} alt="Jeevan Pranav" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src="/IMG_6567.jpg" alt="Jeevan Pranav" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             <div className="avatar-badge">📍 Coimbatore, Tamil Nadu</div>
           </div>
           <div className="contact-pills">
