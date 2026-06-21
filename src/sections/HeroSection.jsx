@@ -1,6 +1,17 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function HeroSection() {
+  const navigate = useNavigate()
+
+  const handleNavClick = (e, to, sectionId) => {
+    e.preventDefault()
+    const el = document.getElementById(sectionId)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+      navigate(to, { replace: true })
+    }
+  }
+
   return (
     <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2.5rem', position: 'relative' }}>
       <div className="hero">
@@ -11,8 +22,8 @@ export default function HeroSection() {
             Building software, analyzing data, and shipping projects — from web apps to cloud-powered analytics dashboards.
           </p>
           <div className="hero-cta-row">
-            <Link to="/projects" className="btn-primary">View projects →</Link>
-            <Link to="/contact"  className="btn-outline">Get in touch</Link>
+            <a href="#projects" className="btn-primary" onClick={(e) => handleNavClick(e, '/projects', 'projects')}>View projects →</a>
+            <a href="#contact" className="btn-outline" onClick={(e) => handleNavClick(e, '/contact', 'contact')}>Get in touch</a>
           </div>
           <div className="hero-stats">
             <div className="stat-item"><span className="stat-num">6.75</span><span className="stat-label">CGPA</span></div>
