@@ -20,15 +20,15 @@ export default function ProjectsSection() {
         </div>
         <div className="project-card">
           <p className="project-num">PROJECT_02</p>
-          <h3 className="project-name">Image-Based Animal Type Recognition</h3>
+          <h3 className="project-name">Turf Booking Application</h3>
           <p className="project-desc">
-            A computer vision project that classifies animal types from uploaded images
-            using machine learning — exploring deep learning and model training pipelines.
+            A comprehensive multi-portal platform for booking and managing sports turfs. Features role-based access for Users, Owners, and Admins, with real-time scheduling.
           </p>
           <div className="project-tags" style={{ marginBottom: '12px' }}>
-            <span className="ptag">Python</span>
-            <span className="ptag">Machine Learning</span>
-            <span className="ptag">Computer Vision</span>
+            <span className="ptag">React JS</span>
+            <span className="ptag">Spring Boot</span>
+            <span className="ptag">Java</span>
+            <span className="ptag">H2 Database</span>
           </div>
         </div>
       </div>
