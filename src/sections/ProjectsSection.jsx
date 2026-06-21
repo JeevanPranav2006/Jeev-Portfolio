@@ -22,7 +22,7 @@ export default function ProjectsSection() {
           <p className="project-num">PROJECT_02</p>
           <h3 className="project-name">Image-Based Animal Type Recognition</h3>
           <p className="project-desc">
-            An ongoing computer vision project that classifies animal types from uploaded images
+            A computer vision project that classifies animal types from uploaded images
             using machine learning — exploring deep learning and model training pipelines.
           </p>
           <div className="project-tags" style={{ marginBottom: '12px' }}>
