@@ -25,7 +25,7 @@ export default function AboutSection() {
           <p className="about-text">
             I'm a <strong>B.Tech Information Technology</strong> student at Sri Krishna College of Engineering and
             Technology (SKCET) — an NAAC A++ accredited institution in the NIRF Top 100. Currently in my second year
-            with a <strong>6.75 CGPA</strong>.
+            with a <strong>6.55 CGPA</strong>.
           </p>
           <p className="about-text">
             I'm passionate about <strong>Software Development</strong> and <strong>Data Analytics</strong>, with
